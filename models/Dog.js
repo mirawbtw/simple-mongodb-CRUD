@@ -7,5 +7,5 @@ let schema = new mongoose.Schema({
     weight: Number
 });
 
-/* We export the model to use it in cats.js routes file */
-module.exports = mongoose.model('Cat', schema);
+/* We export the model to use it in dogs.js routes file */
+module.exports = mongoose.model('Dog', schema);

@@ -1,9 +1,11 @@
-let restify = require('restify');
-let mongoose = require('mongoose');
-mongoose.connect('mongodb://localhost:27017/cats');
+let restify  = require('restify'),
+    mongoose = require('mongoose');
+    
+mongoose.connect('mongodb://localhost:27017/animals');
 
 let server = restify.createServer();
 
+/* bodyParser allows to parse body parameters when handling requests */
 server.use(restify.bodyParser({ mapParams: true }));
 
 require('./routes/index')(server);
