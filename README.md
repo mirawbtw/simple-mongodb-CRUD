@@ -1,8 +1,9 @@
 # Node MongoDB Restify basic CRUD
 1. Install Node.js, MongoDB. The app will create and use a database named "animals" if not changed
 2. Clone repo: `git clone https://github.com/loicmarie/simple-mongodb-CRUD.git app && cd app`
-3. Start server: `node index.js`
-4. Try it out:
+3. Install restify and mongoose with `npm install`
+4. Start server: `node index.js`
+5. Try it out:
 
     `$ curl --form "name=jean-denis&weight=6.3&age=12" localhost:8080/cats`
 
