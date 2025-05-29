@@ -23,10 +23,16 @@ jobs:
       run: npm install
 
     - name: Run test
-      run: echo "✅ Tests passed!" && exit 0
+      run: echo "Pretend we're testing..." && exit 0
 
-    - name: Check Docker Compose file
+    - name: Install Docker Compose
+      run: |
+        sudo curl -L "https://github.com/docker/compose/releases/download/v2.24.6/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
+        sudo chmod +x /usr/local/bin/docker-compose
+        docker-compose version
+
+    - name: Check Docker Compose syntax
       run: docker-compose config
 
     - name: Build Docker containers
-      run: docker-compose build || echo "⚠️ Build failed but moving on"
+      run: docker-compose build
