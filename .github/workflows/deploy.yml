@@ -1,0 +1,35 @@
+name: CI/CD Pipeline
+
+on:
+  push:
+    branches: [ "main" ]  # триггер при пуше в main
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v3
+
+    - name: Set up Node.js
+      uses: actions/setup-node@v3
+      with:
+        node-version: '18'
+
+    - name: Install dependencies
+      run: npm install
+
+    - name: Run test
+      run: echo "Pretend we're testing..." && exit 0
+
+    - name: Build Docker containers
+      run: docker-compose build
+
+    - name: Run Docker Compose
+      run: docker-compose up -d
+
+    - name: Show running containers
+      run: docker ps
